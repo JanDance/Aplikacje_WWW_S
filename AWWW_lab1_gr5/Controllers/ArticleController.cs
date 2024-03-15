@@ -19,33 +19,30 @@ namespace AWWW_lab1_gr5.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int id = 1)
         {
-            var article = new List<Article>
+            var articles = new List<Article>
             {
-            new Article 
-            {
+            new Article {
                 Id = 1,
                 Title = "Artykuł 1",
                 Content = "LOrem ipsum ",
                 CreationDate = DateTime.Now
             },
-             new Article 
-            {
+             new Article {
                 Id = 2,
                 Title = "Artykuł 2",
                 Content = "LOrem ipsum ",
                 CreationDate = DateTime.Now
             },
-             new Article 
-            {
+             new Article {
                 Id = 3,
                 Title = "Artykuł 3",
                 Content = "LOrem ipsum ",
                 CreationDate = DateTime.Now
             },
             };
-            return View(article);
+            return View(articles[id - 1]);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
